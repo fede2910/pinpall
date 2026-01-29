@@ -17,7 +17,7 @@ public class Elimination : MonoBehaviour
 
     void Start()
     {
-        migliorpunteggio = PlayerPrefs.GetInt("Miglior Punteggio", 0);
+        migliorpunteggio = PlayerPrefs.GetInt("MigliorPunteggio", 0);
         Besttime.text = "Miglior Punteggio: " + migliorpunteggio;
         gameoverPanel.SetActive(false);
     }

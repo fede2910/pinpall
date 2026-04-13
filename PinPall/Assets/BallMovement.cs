@@ -14,6 +14,7 @@ public class BallMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        GetComponent<TrailRenderer>().enabled = false;
     }
 
     // Update is called once per frame
@@ -28,10 +29,20 @@ public class BallMovement : MonoBehaviour
         if(Input.GetKey(KeyCode.A))
         {
             rb.AddForce(force, ForceMode.Acceleration);
+            GetComponent<TrailRenderer>().enabled = true;
         }
         if(Input.GetKey(KeyCode.D))
         {
             rb.AddForce(-force, ForceMode.Acceleration);
+            GetComponent<TrailRenderer>().enabled = true;
+        }
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            GetComponent<TrailRenderer>().enabled = false;
+        }
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            GetComponent<TrailRenderer>().enabled = false;
         }
     }
 }
